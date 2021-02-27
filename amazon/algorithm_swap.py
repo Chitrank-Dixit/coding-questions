@@ -45,3 +45,11 @@ After that, the algorithm tries to find the next pair of indices to swap but sin
 The number of swaps it performed is 2.
 
 """
+
+
+def algorithm_swap():
+    pass
+
+
+if __name__ == "__main__":
+    print(algorithm_swap())
