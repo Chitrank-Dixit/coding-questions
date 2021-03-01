@@ -11,7 +11,7 @@ def fibonacci(num, memory={}):
 
 
 if __name__ == "__main__":
-    print(fibonacci(6))
-    print(fibonacci(8))
-    print(fibonacci(10))
-    print(fibonacci(50))
+    print(fibonacci(6, {}))
+    print(fibonacci(8, {}))
+    print(fibonacci(10, {}))
+    print(fibonacci(50, {}))

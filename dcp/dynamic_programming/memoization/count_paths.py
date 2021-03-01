@@ -14,13 +14,17 @@ def numberOfPaths(m, n, memory={}):
     # If diagonal movements are allowed
     # then the last addition
     # is required.
-    if (m, n) not in memory:
-        memory[(m, n)] = numberOfPaths(m - 1, n) + numberOfPaths(m, n - 1)
-    return memory[(m, n)]
+    if f"{m},{n}" not in memory:
+        memory[f"{m},{n}"] = numberOfPaths(m - 1, n) + numberOfPaths(m, n - 1)
+    return memory[f"{m},{n}"]
 
 
 if __name__ == "__main__":
     # Driver program to test above function
-    m = 3
-    n = 3
-    print(numberOfPaths(m, n))
+    m = 9
+    n = 9
+    print(numberOfPaths(m, n, {}))
+
+    m = 18
+    n = 18
+    print(numberOfPaths(m, n, {}))
