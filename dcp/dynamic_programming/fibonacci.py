@@ -2,10 +2,7 @@
 
 
 def fibonacci(num, memory={}):
-    if num == 0:
-        return 0
-
-    if num == 1:
+    if num <= 2:
         return 1
 
     if num not in memory:
@@ -14,4 +11,7 @@ def fibonacci(num, memory={}):
 
 
 if __name__ == "__main__":
+    print(fibonacci(6))
+    print(fibonacci(8))
     print(fibonacci(10))
+    print(fibonacci(50))
