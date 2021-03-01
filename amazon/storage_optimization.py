@@ -1,5 +1,6 @@
 """
 Amazon storage optimization question
+https://leetcode.com/discuss/interview-question/1021429/Amazon-OA-or-storage-optimization
 """
 
 
