@@ -9,15 +9,16 @@
 # If our input was [3, 2, 1], the expected output would be [2, 3, 6].
 #
 # Follow-up: what if you can't use division?
-import math
+from dcp.maximum import maximum
+from dcp.recursion.factorial import factorial
 
 
 def division_of_numbers(arr):
     arr = sorted(arr)
-    factorial = math.factorial(max(arr))
+    fact = factorial(maximum(arr))
     new_arr = []
     for num in arr:
-        new_arr.append(factorial // num)
+        new_arr.append(fact // num)
     return new_arr
 
 

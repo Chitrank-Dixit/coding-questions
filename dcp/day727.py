@@ -16,6 +16,7 @@ For example, given the sequence [2, 1, 5, 7, 2, 0, 5], your algorithm should pri
 2
 2
 """
+from dcp.sorting.merge_sort import merge_sort
 
 
 def median_find(arr):
@@ -62,30 +63,6 @@ def print_current_median_v1(arr, length, index=0):
         )
         median_found.extend(medians)
     return median_found
-
-
-def merge(left, right):
-    result = []
-    i, j = 0, 0
-    while i < len(left) and j < len(right):
-        if left[i] <= right[j]:
-            result.append(left[i])
-            i = i + 1
-        else:
-            result.append(right[j])
-            j = j + 1
-    result = result + left[i:]
-    result = result + right[j:]
-    return result
-
-
-def merge_sort(lis):
-    if len(lis) < 2:
-        return lis
-    mid = len(lis) // 2
-    left = merge_sort(lis[:mid])
-    right = merge_sort(lis[mid:])
-    return merge(left, right)
 
 
 if __name__ == "__main__":
