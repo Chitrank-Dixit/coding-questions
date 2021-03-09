@@ -3,7 +3,7 @@ def factorial(n, memory={}):
         return 1
 
     if n not in memory:
-        memory[n] = n * factorial(n - 1)
+        memory[n] = n * factorial(n - 1, memory)
     return memory[n]
 
 

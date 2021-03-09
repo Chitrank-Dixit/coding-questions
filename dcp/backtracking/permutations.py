@@ -13,12 +13,16 @@ def toString(List):
 # 3. Ending index of the string.
 def permute(a, left, right):
     if left == right:
-        print(toString(a))
+        return toString(a)
     else:
+        permutation_list = []
         for i in range(left, right + 1):
             a[left], a[i] = a[i], a[left]
-            permute(a, left + 1, right)  # recursion
+            permutations = permute(a, left + 1, right)  # recursion
+            permutation_list.append(permutations)
             a[left], a[i] = a[i], a[left]  # backtrack
+
+    return permutation_list
 
 
 if __name__ == "__main__":
@@ -26,4 +30,4 @@ if __name__ == "__main__":
     string = "ABC"
     n = len(string)
     a = list(string)
-    permute(a, 0, n - 1)
+    permutations = permute(a, 0, n - 1)
