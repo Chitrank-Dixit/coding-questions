@@ -31,9 +31,36 @@ def greatest_area(arr):
     return max_area
 
 
+def greatest_area_v1(heights):
+    """
+    shifting pointer technique
+    :param arr:
+    :return:
+    """
+    max_area = 0
+    a = 0
+    b = len(heights) - 1
+    while a < b:
+        height = min(heights[a], heights[b])
+        width = b - a
+        area = height * width
+        max_area = max(area, max_area)
+        if heights[a] <= heights[b]:
+            a += 1
+        else:
+            b -= 1
+    return max_area
+
+
 if __name__ == "__main__":
     print(greatest_area([]))
 
     print(greatest_area([7]))
 
     print(greatest_area([6, 9, 3, 4, 5, 8]))
+
+    print(greatest_area_v1([]))
+
+    print(greatest_area_v1([7]))
+
+    print(greatest_area_v1([6, 9, 3, 4, 5, 8]))
