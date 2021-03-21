@@ -15,6 +15,14 @@ class Stack:
         for element in self.item[::-1]:
             print(element)
 
+    def is_empty(self):
+        if len(self.item) == 0:
+            return True
+        return False
+
+    def is_full(self):
+        pass
+
 
 if __name__ == "__main__":
     s = Stack()
