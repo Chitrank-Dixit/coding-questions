@@ -1,6 +1,7 @@
 class Stack:
     def __init__(self):
         self.item = []
+        self.top = -1
 
     def push(self, element):
         self.item.append(element)
@@ -9,7 +10,9 @@ class Stack:
         self.item.pop()
 
     def tos(self):
-        return self.item[-1]
+        if len(self.item) > 0:
+            self.top = self.item[-1]
+        return self.top
 
     def traverse(self):
         for element in self.item[::-1]:
