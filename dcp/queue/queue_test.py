@@ -1,19 +1,24 @@
 class Queue:
     def __init__(self):
-        self.item = []
+        self.items = []
 
     def enqueue(self, element):
-        self.item.append(element)
+        self.items.append(element)
 
     def dequeue(self):
-        self.item.pop(0)
+        self.items.pop(0)
 
     def current_queue_element(self):
-        return self.item[0]
+        return self.items[0]
 
     def traverse(self):
-        for element in self.item:
+        for element in self.items:
             print(element)
+
+    def is_empty(self):
+        if len(self.items) == 0:
+            return True
+        return False
 
 
 if __name__ == "__main__":
