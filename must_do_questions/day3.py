@@ -5,6 +5,11 @@ can be trapped
 
 
 def trapped_rain_water(arr):
+    """
+    missing some test cases not completely correct
+    :param arr:
+    :return:
+    """
     if len(arr) < 2:
         return 0
     fill = 0
@@ -13,7 +18,9 @@ def trapped_rain_water(arr):
     right = 1
     while right < len(arr):
         if arr[left] > arr[right]:
-            fill += arr[left] - arr[right]
+            current = arr[left] - arr[right]
+            if current > 0:
+                fill += current
         elif arr[left] <= arr[right]:
             total_fill += fill
             fill = 0
@@ -29,6 +36,28 @@ def trapped_rain_water(arr):
     return total_fill
 
 
+def trapped_rain_water_v1(arr):
+    total_water = 0
+    for p in range(len(arr)):
+        left_p = p
+        right_p = p
+        max_left = 0
+        max_right = 0
+        while left_p >= 0:
+            max_left = max(max_left, arr[left_p])
+            left_p -= 1
+
+        while right_p < len(arr):
+            max_right = max(max_right, arr[right_p])
+            right_p += 1
+
+        current_water = min(max_left, max_right) - arr[p]
+
+        if current_water >= 0:
+            total_water += current_water
+    return total_water
+
+
 if __name__ == "__main__":
     arr = []
     print(trapped_rain_water(arr))
@@ -41,3 +70,23 @@ if __name__ == "__main__":
 
     arr = [0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]
     print(trapped_rain_water(arr))
+
+    arr = [5, 0, 3, 0, 0, 0, 2, 3, 4, 2, 1]
+    print(trapped_rain_water(arr))
+
+    print("------------------------------------------")
+
+    arr = []
+    print(trapped_rain_water_v1(arr))
+
+    arr = [2, 0, 2]
+    print(trapped_rain_water_v1(arr))
+
+    arr = [2, 0, 2, 1, 2]
+    print(trapped_rain_water_v1(arr))
+
+    arr = [0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]
+    print(trapped_rain_water_v1(arr))
+
+    arr = [5, 0, 3, 0, 0, 0, 2, 3, 4, 2, 1]
+    print(trapped_rain_water_v1(arr))
