@@ -58,6 +58,32 @@ def trapped_rain_water_v1(arr):
     return total_water
 
 
+def trapped_rain_water_v2(arr):
+    left = 0
+    right = len(arr) - 1
+    left_max = 0
+    right_max = 0
+    total = 0
+
+    while left < right:
+        if arr[left] <= arr[right]:
+            if arr[left] >= left_max:
+                left_max = arr[left]
+            else:
+                total += left_max - arr[left]
+
+            left += 1
+        else:
+            if arr[right] >= right_max:
+                right_max = arr[right]
+            else:
+                total += right_max - arr[right]
+
+            right -= 1
+
+    return total
+
+
 if __name__ == "__main__":
     arr = []
     print(trapped_rain_water(arr))
@@ -90,3 +116,20 @@ if __name__ == "__main__":
 
     arr = [5, 0, 3, 0, 0, 0, 2, 3, 4, 2, 1]
     print(trapped_rain_water_v1(arr))
+
+    print("-------------------------------------------")
+
+    arr = []
+    print(trapped_rain_water_v2(arr))
+
+    arr = [2, 0, 2]
+    print(trapped_rain_water_v2(arr))
+
+    arr = [2, 0, 2, 1, 2]
+    print(trapped_rain_water_v2(arr))
+
+    arr = [0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]
+    print(trapped_rain_water_v2(arr))
+
+    arr = [5, 0, 3, 0, 0, 0, 2, 3, 4, 2, 1]
+    print(trapped_rain_water_v2(arr))
