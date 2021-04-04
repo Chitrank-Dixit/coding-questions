@@ -6,16 +6,18 @@ is a rotation of "erbottlewat")
 
 
 def is_rotation(s1, s2):
-    i = 0
+    s1 = list(s1)
+    s2 = list(s2)
     j = len(s2) - 1
-    match_count = 0
-    while i < len(s1) and j >= 0:
-        if s1[i] == s2[j]:
-            match_count += 1
-        i += 1
-        j -= 1
-    if match_count > 0:
-        return True
+    count = 0
+    while True:
+        ele = s2.pop(j)
+        s2.insert(0, ele)
+        if s1 == s2:
+            return True
+        if count == len(s2):
+            break
+        count += 1
     return False
 
 
