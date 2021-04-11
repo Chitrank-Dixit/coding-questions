@@ -9,13 +9,13 @@
 # If our input was [3, 2, 1], the expected output would be [2, 3, 6].
 #
 # Follow-up: what if you can't use division?
-from dcp.maximum import maximum
-from dcp.recursion.factorial import factorial
+from dcp.mathematics.maximum import maximum
+from dcp.recursion.factorial import factorial as factorial_v1
 
 
 def division_of_numbers(arr):
     arr = sorted(arr)
-    fact = factorial(maximum(arr))
+    fact = factorial_v1(maximum(arr))
     new_arr = []
     for num in arr:
         new_arr.append(fact // num)

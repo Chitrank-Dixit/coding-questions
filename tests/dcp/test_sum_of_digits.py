@@ -1,6 +1,6 @@
 import pytest
 
-from dcp.sum_of_digits import sum_of_digits
+from dcp.mathematics.sum_of_digits import sum_of_digits
 
 
 class TestDay1:

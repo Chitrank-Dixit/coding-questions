@@ -1,4 +1,4 @@
-from dcp.permutations import permutation
+from dcp.mathematics.permutations import permutation
 
 
 def palindrome_permutation(str):
