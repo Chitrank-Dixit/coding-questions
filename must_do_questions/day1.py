@@ -16,6 +16,9 @@ def num_pairs(arr, target):
 
 
 def num_pairs_v1(arr, target):
+    """
+    using hashmap to reduce the loops (as we now have a lookup in O(1))
+    """
     if len(arr) < 2:
         return None
     num_dict = dict()

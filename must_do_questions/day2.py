@@ -34,8 +34,6 @@ def greatest_area(arr):
 def greatest_area_v1(heights):
     """
     shifting pointer technique
-    :param arr:
-    :return:
     """
     max_area = 0
     a = 0
