@@ -41,13 +41,14 @@ def removeData(key):
     hashTable[index] = 0
 
 
-insertData(123, "apple")
-insertData(432, "mango")
-insertData(213, "banana")
-insertData(654, "guava")
+if __name__ == "__main__":
+    insertData(123, "apple")
+    insertData(432, "mango")
+    insertData(213, "banana")
+    insertData(654, "guava")
 
-print(hashTable)
+    print(hashTable)
 
-removeData(123)
+    removeData(123)
 
-print(hashTable)
+    print(hashTable)
