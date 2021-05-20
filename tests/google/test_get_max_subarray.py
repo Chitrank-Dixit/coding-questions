@@ -1,6 +1,6 @@
 import pytest
 
-from dcp.day18 import get_max_subarray
+from google.get_max_subarray import get_max_subarray
 
 
 class TestDay1:
