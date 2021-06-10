@@ -1,5 +1,7 @@
 """
-Given a string containing only parenthesis, determine if it is valid. The string is valid if all parentheses close.
+Given a string containing only containing round brackets '(' and ')' and lowercase characters,remove the least amount
+of brackets so the string is valid.
+A string is considered valid if it is empty or if there are brackets, they all close.
 """
 
 
@@ -50,27 +52,18 @@ def is_valid_string_v1(strings):
             st.push(char)
         else:
             left_bracket = st.pop()
-            correct_bracket = validator[left_bracket]
+            correct_bracket = validator.get(left_bracket)
             if correct_bracket is not None and correct_bracket != char:
                 return False
     return True
 
 
 if __name__ == "__main__":
-    strings = "{[()]}"
-    print(is_valid_string(strings))
-
-    strings = "{[()}"
-    print(is_valid_string(strings))
-
-    strings = "{[)]}"
-    print(is_valid_string(strings))
-
-    strings = "{[()]}"
+    strings = "This is test {[()]} string"
     print(is_valid_string_v1(strings))
 
-    strings = "{[()}"
+    strings = "This is test {[()} string"
     print(is_valid_string_v1(strings))
 
-    strings = "{[)]}"
+    strings = "This is test {[)]} string"
     print(is_valid_string_v1(strings))
