@@ -13,7 +13,7 @@ class Stack:
         self.list.append(data)
 
     def pop(self):
-        if self.tos():
+        if self.tos() is not None:
             return self.list.pop()
         return None
 
@@ -23,47 +23,82 @@ class Stack:
         return None
 
 
-def is_valid_string(strings):
-    validator = {")": "(", "}": "{", "]": "["}
+def validated_string(strings):
+    stack_accepted = ["(", ")"]
+    stack = Stack()
+    invalid_index = []
+    for index, char in enumerate(strings):
+        if char == stack_accepted[0]:
+            stack.push(char)
+        elif char == stack_accepted[1]:
+            if stack.tos() == stack_accepted[0]:
+                stack.pop()
+            elif not stack.tos() or stack.tos() != stack_accepted[0]:
+                invalid_index.append(index)
 
-    st = Stack()
-    for char in strings:
-        if char in validator.values():
-            st.push(char)
-        elif char in validator and validator[char] == st.tos():
-            st.pop()
-        else:
-            return False
-    if not st.tos():
-        return True
-    return False
+    new_string = ""
+    for index, char in enumerate(strings):
+        if char == stack.tos():
+            stack.pop()
+        elif index not in invalid_index:
+            new_string += char
+    return new_string
 
 
-def is_valid_string_v1(strings):
-    if len(strings) == 0:
-        return True
+def validated_string_v1(strings):
+    res = [string for string in strings]
+    stack = Stack()
 
-    validator = {"(": ")", "{": "}", "[": "]"}
+    for i in range(len(res)):
+        if res[i] == "(":
+            stack.push(i)
+        elif res[i] == ")" and stack.tos():
+            stack.pop()
+        elif res[i] == ")":
+            res[i] = ""
 
-    st = Stack()
+    while stack.tos() is not None:
+        curr_index = stack.pop()
+        res[curr_index] = ""
 
-    for char in strings:
-        if char in validator:
-            st.push(char)
-        else:
-            left_bracket = st.pop()
-            correct_bracket = validator.get(left_bracket)
-            if correct_bracket is not None and correct_bracket != char:
-                return False
-    return True
+    return "".join(res)
 
 
 if __name__ == "__main__":
-    strings = "This is test {[()]} string"
-    print(is_valid_string_v1(strings))
+    strings = "This is test () string"
+    print(validated_string(strings))
 
-    strings = "This is test {[()} string"
-    print(is_valid_string_v1(strings))
+    strings = "This is test () string"
+    print(validated_string(strings))
 
-    strings = "This is test {[)]} string"
-    print(is_valid_string_v1(strings))
+    strings = "This is test ) string"
+    print(validated_string(strings))
+
+    strings = "))(("
+    print(validated_string(strings))
+
+    strings = "a)bc(d)"
+    print(validated_string(strings))
+
+    strings = "(ab(c)d"
+    print(validated_string(strings))
+
+    print("------------------------")
+
+    strings = "This is test () string"
+    print(validated_string_v1(strings))
+
+    strings = "This is test () string"
+    print(validated_string_v1(strings))
+
+    strings = "This is test ) string"
+    print(validated_string_v1(strings))
+
+    strings = "))(("
+    print(validated_string_v1(strings))
+
+    strings = "a)bc(d)"
+    print(validated_string_v1(strings))
+
+    strings = "(ab(c)d"
+    print(validated_string_v1(strings))
