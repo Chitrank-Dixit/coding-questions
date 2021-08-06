@@ -1,5 +1,6 @@
 """
 Check if Binary tree is a BST or not
+https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
 """
 INT_MAX = 4294967296
 INT_MIN = -4294967296
