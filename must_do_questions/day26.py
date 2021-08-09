@@ -18,9 +18,30 @@ def is_valid_bst(root):
     if root.left.val < root.val < root.right.val:
         left = is_valid_bst(root.left)
         right = is_valid_bst(root.right)
-        if left < root.val < right:
+        if left and right and left < root.val < right:
             return root.val
     return False
+
+
+def dfs(node, min, max):
+    if node.val < min or node.val >= max:
+        return False
+    if node.left:
+        if not dfs(node.left, min, node.val):
+            return False
+
+    if node.right:
+        if not dfs(node.right, node.val, max):
+            return False
+    return True
+
+
+def is_valid_bst_v1(root):
+    if not root:
+        return True
+    INT_MAX = 4294967296
+    INT_MIN = -4294967296
+    return dfs(root, INT_MIN, INT_MAX)
 
 
 if __name__ == "__main__":
@@ -32,3 +53,5 @@ if __name__ == "__main__":
     two_2 = BST(val=18, left=three_3, right=three_4)
     one_1 = BST(val=12, left=two_1, right=two_2)
     print(is_valid_bst(one_1) == one_1.val)
+
+    print(is_valid_bst_v1(one_1))
