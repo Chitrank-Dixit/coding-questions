@@ -21,8 +21,22 @@ def permute(a, left, right):
             permutations = permute(a, left + 1, right)  # recursion
             permutation_list.append(permutations)
             a[left], a[i] = a[i], a[left]  # backtrack
-
     return permutation_list
+
+
+def permutation(input_list, used, partial=list()):
+    if len(partial) == len(input_list):
+        print(partial)
+    else:
+        for i in range(0, len(input_list)):
+            if not used[i] and not (
+                input_list[i] == input_list[i - 1] and not used[i - 1]
+            ):
+                used[i] = True
+                partial.append(input_list[i])
+                permutation(input_list, partial, used)
+                used[i] = False
+                partial.pop(len(partial) - 1)
 
 
 if __name__ == "__main__":
@@ -31,3 +45,8 @@ if __name__ == "__main__":
     n = len(string)
     a = list(string)
     permutations = permute(a, 0, n - 1)
+    print(permutations)
+
+    list_of_nums = [1, 2, 3, 4]
+    used = {index: False for index, num in enumerate(list_of_nums)}
+    print(permutation(input_list=list_of_nums, used=used))
