@@ -116,8 +116,8 @@ print(min_cost)
 
 cache = [[-1 for _ in range(0, 3)] for _ in range(0, len(painting_cost))]
 paint_red = min_cost_memo(painting_cost, 0, RED, cache)
-paint_red = min_cost_memo(painting_cost, 0, BLUE, cache)
-paint_red = min_cost_memo(painting_cost, 0, GREEN, cache)
+paint_blue = min_cost_memo(painting_cost, 0, BLUE, cache)
+paint_green = min_cost_memo(painting_cost, 0, GREEN, cache)
 min_cost = min(paint_red, min(paint_blue, paint_green))
 print(min_cost)
 print(min_cost_dp(painting_cost))
