@@ -1,0 +1,3 @@
+"""
+picking tickets (Hackerrank)
+"""
