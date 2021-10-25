@@ -1,6 +1,9 @@
 import sys
 
 
+from one_dimensional.util.stop_watch import start_watch, stop_watch_print
+
+
 def min_cost_path(i, C, X):
     if i == 0:
         return 0
@@ -54,15 +57,20 @@ C = [0, 20, 30, 40, 25, 15, 20, 28]
 X = 3
 N = len(C)
 
+start_watch()
 ret = min_cost_path(N - 1, C, X)
+stop_watch_print("Recursive {} milli seconds")
 print(ret)
 
 cache = [0 for _ in range(0, N)]
+start_watch()
 ret = min_cost_path_memo(N - 1, C, X, cache)
-
+stop_watch_print("Memoization {} milli seconds")
 print(ret)
 
+start_watch()
 ret = min_cost_dp(C, X)
+stop_watch_print("DP {} milli seconds")
 print(ret)
 
 min_cost_dp_reconstruct(C, X)
