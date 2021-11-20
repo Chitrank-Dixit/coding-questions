@@ -80,6 +80,10 @@ if __name__ == "__main__":
     merge_lis = merge_sort(lis)
     print("Sorted list is: ", merge_lis)
 
+    lis = [12, 11, 13, 5, 6, 7]
+    merge_lis = merge_sort(lis)
+    print("Sorted list is: ", merge_lis)
+
     print("Other implementation")
     arr = [12, 11, 13, 5, 6, 7]
     print("Given array is", end="\n")

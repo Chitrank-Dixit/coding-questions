@@ -46,6 +46,9 @@ def binary_search_v2(arr, search_term):
 
 if __name__ == "__main__":
     arr = [1, 4, 2, 3, 5, 8, 6, 7]
+    print(binary_search(arr=arr, left=0, right=len(arr) - 1, search_term=8))
+
+    arr = [1, 4, 2, 3, 5, 8, 6, 7]
     print(binary_search_v1(arr=arr, left=0, right=len(arr) - 1, search_term=8))
 
     arr = [1, 4, 2, 3, 5, 8, 6, 7]
