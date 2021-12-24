@@ -60,6 +60,20 @@ def insert_node(head, value):
     return head
 
 
+def print_leaf_nodes(head):
+    if head is None:
+        return
+
+    if head.left is None and head.right is None:
+        print(head.value, end=" ")
+        return
+
+    if root.left is not None:
+        print_leaf_nodes(head.left)
+    if root.right is not None:
+        print_leaf_nodes(head.right)
+
+
 if __name__ == "__main__":
     root = BinaryTree()
     root.value = 100
@@ -98,3 +112,6 @@ if __name__ == "__main__":
     print("---------------------------")
     root = insert_node(root, 108)
     print(inorder(root))
+
+    print("----------------------")
+    print(print_leaf_nodes(root))
