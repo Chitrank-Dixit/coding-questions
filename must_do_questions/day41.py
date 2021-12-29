@@ -38,7 +38,7 @@ def recurse(N, k, r, c, dp):
     if k == 0:
         return 1
 
-    if k in dp and r in dp[k] and c in dp[k][r] and dp[k][r][c] is not None:
+    if k in dp and r in dp[k] and c in dp[k][r] and dp[k][r][c] != 0:
         return dp[k][r][c]
 
     res = 0
@@ -56,8 +56,8 @@ def knight_probability_dp(N, k, r, c):
         inner_dict = {}
         for j in range(N):
             third = {}
-            for k in range(N):
-                third[k] = None
+            for ll in range(N):
+                third[ll] = 0
             inner_dict[j] = third
         dp[i] = inner_dict
 
@@ -70,12 +70,13 @@ def knight_probability_dp_1(N, k, r, c):
         inner_dict = {}
         for j in range(N):
             third = {}
-            for k in range(N):
-                third[k] = None
+            for ll in range(N):
+                third[ll] = 0
             inner_dict[j] = third
         dp[i] = inner_dict
+
     dp[0][r][c] = 1
-    for step in range(k + 1):
+    for step in range(1, k + 1):
         for row in range(N):
             for col in range(N):
                 for i in range(len(directions)):
@@ -103,19 +104,19 @@ def knight_probability_dp_1_op(N, k, r, c):
     prev_dp = {}
     for j in range(N):
         third = {}
-        for k in range(N):
-            third[k] = 0
+        for ll in range(N):
+            third[ll] = 0
         prev_dp[j] = third
 
     curr_dp = {}
     for j in range(N):
         third = {}
-        for k in range(N):
-            third[k] = 0
+        for ll in range(N):
+            third[ll] = 0
         curr_dp[j] = third
 
     prev_dp[r][c] = 1
-    for step in range(k + 1):
+    for step in range(1, k + 1):
         for row in range(N):
             for col in range(N):
                 for i in range(len(directions)):
@@ -135,8 +136,8 @@ def knight_probability_dp_1_op(N, k, r, c):
     curr_dp = {}
     for j in range(N):
         third = {}
-        for k in range(N):
-            third[k] = 0
+        for ll in range(N):
+            third[ll] = 0
         curr_dp[j] = third
 
     res = 0
