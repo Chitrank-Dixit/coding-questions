@@ -1,4 +1,5 @@
 # We initialize the matrix with -1 at first.
+# in memoization make matrix of size of the changing elements and assign new values
 
 
 def knapsack(wt, val, W, n):
