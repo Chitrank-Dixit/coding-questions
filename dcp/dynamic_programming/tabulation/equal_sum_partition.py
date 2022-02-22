@@ -1,10 +1,10 @@
-from dcp.recursion.subset_sum import subset_sum
+from dcp.dynamic_programming.tabulation.subset_sum import isSubsetSum
 
 
 def equal_sum(arr, n, sum):
     if sum % 2 != 0:
         return False
-    return subset_sum(arr, n, sum//2)
+    return isSubsetSum(arr, n, sum//2)
 
 
 if __name__ == "__main__":
