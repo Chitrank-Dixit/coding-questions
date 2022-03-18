@@ -27,7 +27,32 @@ def maxSubArraySum(a, size):
     print("Starting Index %d" % (start))
     print("Ending Index %d" % (end))
 
+
+def kadane_algo(arr):
+    curr_sum = 0
+    max_sum = 0
+
+    for i in range(len(arr)):
+        curr_sum += arr[i]
+
+        if curr_sum > max_sum:
+            max_sum = curr_sum
+
+        if curr_sum < 0:
+            curr_sum = 0
+    return max_sum
+
 if __name__ == "__main__":
     # Driver program to test maxSubArraySum
     a = [-2, -3, 4, -1, -2, 1, 5, -3]
     maxSubArraySum(a, len(a))
+
+    a = [-2, -3, -4, -1, -2, -1, -5, -3]
+    maxSubArraySum(a, len(a))
+
+
+    a = [5, -4, -2, 6, -1]
+    print(kadane_algo(a))
+
+    a = [-5, -4, -2, -6, -1]
+    print(kadane_algo(a))
