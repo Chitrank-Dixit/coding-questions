@@ -1,11 +1,11 @@
 # Python3 program of above implementation
-def getMinMax(arr):
+def get_min_max(arr):
     n = len(arr)
 
     # If array has even number of elements then
     # initialize the first two elements as minimum
     # and maximum
-    if (n % 2 == 0):
+    if n % 2 == 0:
         mx = max(arr[0], arr[1])
         mn = min(arr[0], arr[1])
 
@@ -23,7 +23,7 @@ def getMinMax(arr):
 
     # In the while loop, pick elements in pair and
     # compare the pair with max and min so far
-    while (i < n - 1):
+    while i < (n - 1):
         if arr[i] < arr[i + 1]:
             mx = max(mx, arr[i + 1])
             mn = min(mn, arr[i])
@@ -35,12 +35,12 @@ def getMinMax(arr):
         # elements are processed in loop
         i += 2
 
-    return (mx, mn)
+    return mx, mn
 
 
 # Driver Code
 if __name__ == '__main__':
     arr = [1000, 11, 445, 1, 330, 3000]
-    mx, mn = getMinMax(arr)
+    mx, mn = get_min_max(arr)
     print("Minimum element is", mn)
     print("Maximum element is", mx)
