@@ -13,6 +13,7 @@ def permutation(input_list, partial, used):
                 partial.pop(len(partial) - 1)
 
 
-nums = [1, 2, 3, 4, 5]
-used = [False for _ in range(0, len(nums))]
-permutation(nums, [], used)
+if __name__ == "__main__":
+    nums = [1, 2, 3]
+    used = [False for _ in range(0, len(nums))]
+    permutation(nums, [], used)
