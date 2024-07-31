@@ -34,35 +34,6 @@ if __name__ == "__main__":
     target = 3
     print(num_pairs(arr, target))
 
-    arr = [5]
-    target = 8
-    print(num_pairs(arr, target))
-
-    arr = [5]
-    target = 5
-    print(num_pairs(arr, target))
-
-    arr = [1, 6]
-    target = 7
-    print(num_pairs(arr, target))
-
-    arr = [1, 2, 3, 4, 5]
-    target = 25
-    print(num_pairs(arr, target))
-
-    arr = [1, 3, 7, 9, 2]
-    target = 11
-    print(num_pairs(arr, target))
-
-    # nums_pairs v1
-
-    arr = []
-    target = 3
-    print(num_pairs_v1(arr, target))
-
-    arr = [5]
-    target = 8
-    print(num_pairs_v1(arr, target))
 
     arr = [5]
     target = 5

@@ -42,6 +42,17 @@ def kadane_algo(arr):
             curr_sum = 0
     return max_sum
 
+# on negative numbers
+def kadane_algorithm(arr):
+    max_sum = float('-inf')
+    current_sum = 0
+
+    for num in arr:
+        current_sum = max(num, current_sum + num)
+        max_sum = max(max_sum, current_sum)
+
+    return max_sum
+
 if __name__ == "__main__":
     # Driver program to test maxSubArraySum
     a = [-2, -3, 4, -1, -2, 1, 5, -3]
@@ -56,3 +67,7 @@ if __name__ == "__main__":
 
     a = [-5, -4, -2, -6, -1]
     print(kadane_algo(a))
+
+    arr = [-2, -3, -4, -1, -2, -1, -5, -3]
+    max_subarray_sum = kadane_algorithm(arr)
+    print(max_subarray_sum)
