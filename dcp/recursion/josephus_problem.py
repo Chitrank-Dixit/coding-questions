@@ -1,5 +1,5 @@
 """
-josephus problem
+josephus problem: https://www.scaler.in/josephus-problem/
 """
 
 
