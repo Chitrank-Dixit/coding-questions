@@ -16,3 +16,8 @@ if __name__ == "__main__":
     Insort = InsertionSort()
     na = Insort.insertion_sort(li)
     print("The sorted list is: ", na)
+
+    li = [1, 5, 7, 4, 8, 2, 6, 5, 4, 3, 2, 1]
+    Insort = InsertionSort()
+    na = Insort.insertion_sort(li)
+    print("The sorted list is: ", na)
